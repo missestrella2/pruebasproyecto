@@ -1,0 +1,23 @@
+{% extends "plantillabase2.html" %}
+
+{% block titulo %}
+login form
+{% endblock %}
+
+
+
+{% block content %}
+soy la pagina de form de index (con form de django)
+
+<form action="{% url 'indexform' %}" method="post">
+  {% csrf_token %}
+  <table>
+    {{ indexform.as_table }}
+  </table>
+  <input type="submit" value="Entrar">
+</form>
+
+<a href={% url "usuariosform" %}>SALTAR LOGIN</a>
+
+
+{% endblock %}

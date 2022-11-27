@@ -1,0 +1,43 @@
+{% extends "plantillabase2.html" %} 
+
+{% block content %}
+
+
+{% if usuarios %}
+    <p>Usuarios encontrados: {{usuarios|length}}</p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{usuario.id}}</td>
+                        <td>{{usuario.nombre}}</td>
+                        <td>{{usuario.apellido}}</td>
+                        <td>{{usuario.email}}</td>
+                        <td>
+                        
+
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+
+
+
+{% else %}
+    <p> no se encuentra usuarios con esas caracteristicas </p>
+
+{% endif %}
+
+{% endblock %}
