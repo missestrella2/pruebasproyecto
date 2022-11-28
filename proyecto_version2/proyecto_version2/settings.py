@@ -43,8 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'usuarios',
-    'historial_ventas',
-    'estadisticas', 
+  #  'clientes',
+    'prueba_clientes',
+    'prueba_ventas',
+    'prueba_estadisticas', 
+    'prueba_pagos',
     'django_extensions'
 ]
 
@@ -87,7 +90,7 @@ DATABASES = {
 
 
 		 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-		 'NAME': 'proyecto',
+		 'NAME': 'nuevadb',
 		 'USER': 'postgres',
 		 'PASSWORD': 'Mi$$9191',
 		 'HOST': 'localhost',

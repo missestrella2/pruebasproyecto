@@ -30,36 +30,33 @@
 
 <body>
 
+
+
+    {% if user.is_authenticated %}
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
         <div class="container-fluid">
-            {% load static %}
             <a class="navbar-brand" href="#"><img src="{% static 'logo.jpg' %}" width="40" height="40" class="ms-5">
                 {{marca|upper}} </a>
-
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                {% if user.is_authenticated %}
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                     <li class="nav-item text-white mt-2">
                         <p class="me-5">Bienvenido\a, {{ user.username }}.</p>
                     </li>
-
-
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="{% url 'listadeclientes' %}" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Clientes
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="">Altas</a></li>
-                            <li><a class="dropdown-item" href="">Bajas</a></li>
+                            <li><a class="dropdown-item" href="{% url 'altaclienteform' %}">Altas</a></li>
+                            <li><a class="dropdown-item" href="{% url 'bajaclienteform' %}">Bajas</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="">Listado</a></li>
+                            <li><a class="dropdown-item" href="{% url 'listadeclientes' %}">Listado</a></li>
                         </ul>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -74,39 +71,20 @@
                             <li><a class="dropdown-item" href="">Listado</a></li>
                         </ul>
                     </li>
-
-
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="{% url "histventform" %}">
-                          Historial Ventas
-                        </a>
-                      </li>
-          
-          
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
-                          Estadisticas
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="{% url "estadisticas" %}">Ver Estadisticas</a></li>
-          
-                        </ul>
-                      </li> -->
-
                 </ul>
                 <a type="button" href="{% url "logout" %}" class="btn btn-dark me-2">Cerrar Sesión</a>
-
-                {% else %}
-                <!-- <a type="button" href="{% url 'index' %}" class="btn btn-outline-primary me-2">Iniciar Sesión</a>
-                    <a type="button" href="" class="btn btn-dark">Registrarse</a> -->
-
-
-                {% endif %}
             </div>
-
         </div>
     </nav>
+    {% else %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- <a type="button" href="{% url 'index' %}" class="btn btn-outline-primary me-2">Iniciar Sesión</a>
+                    <a type="button" href="" class="btn btn-dark">Registrarse</a> -->
+    </div>
+    {% endif %}
+
+
+
 
     <div class="container-xxl mx-5 my-5">
         {% block content %}
@@ -114,6 +92,9 @@
         {% endblock %}
     </div>
 
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 
 </html>

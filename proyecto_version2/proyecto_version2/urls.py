@@ -29,11 +29,14 @@ from django.conf import settings
 
 urlpatterns = [
 
-     path('', include('historial_ventas.urls')),
-     path('', include('login.urls')),
-     path('', include('estadisticas.urls')),
-     path('', include('usuarios.urls')),
+    path('', include('prueba_ventas.urls')),
+    path('', include('login.urls')),
+    path('', include('prueba_estadisticas.urls')),
+    path('', include('prueba_pagos.urls')),
+    path('', include('prueba_clientes.urls')),
+    path('', include('usuarios.urls')),
 
+   # path('', include('clientes.urls')),
     path('admin/', admin.site.urls),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
