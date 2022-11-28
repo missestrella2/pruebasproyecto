@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.template import loader
-from usuarios.forms import UsuariosForm, AltaUsuarioForm, BajaUsuarioForm
+from usuarios.forms import UsuariosForm, AltaUsuarioForm, BajaUsuarioForm, BuscarUsuarioForm
 from django.contrib import messages
 from usuarios.models import Usuario
 from django.views import View
@@ -14,6 +14,18 @@ from django.views.generic import ListView
 def paginaenblanco(request):
     context = {"hoy": datetime.now}
     return render(request, 'usuarios/paginaenblanco.html', {"context": context})
+
+def buscarusuario(request): #filtro por nombre
+    nombre=request.GET.get('nombre')
+    usuarios = Usuario.objects.all()
+    if nombre:
+        usuarios = usuarios.filter(nombre__icontains=nombre)
+    context={
+        'form': BuscarUsuarioForm(),
+        'usuarios':usuarios
+
+    }
+    return render(request,'usuarios/buscarusuario.html',context)
 
 class ListaDeUsuarios(ListView):
     model = Usuario 

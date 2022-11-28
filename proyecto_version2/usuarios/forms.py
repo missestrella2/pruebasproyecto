@@ -17,3 +17,8 @@ class BajaUsuarioForm(forms.ModelForm):
     class Meta:
         model = Usuario
         fields = ['email','password']
+
+class BuscarUsuarioForm(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['nombre']

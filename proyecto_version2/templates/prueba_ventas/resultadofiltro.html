@@ -3,8 +3,8 @@
 {% block content %}
 
 
-{% if clientes %}
-    <p>Clientes encontrados: {{clientes|length}}</p>
+{% if ventas %}
+    <p>Ventas encontrados: {{ventas|length}}</p>
 
         <table class="table">
             <thead>
@@ -16,12 +16,12 @@
                 </tr>
             </thead>
             <tbody>
-                {% for cliente in clientes %}
+                {% for venta in ventas %}
                     <tr>
-                        <td>{{cliente.id}}</td>
-                        <td>{{cliente.nombre}}</td>
-                        <td>{{cliente.apellido}}</td>
-                        <td>{{cliente.email}}</td>
+                        <td>{{venta.id}}</td>
+                        <td>{{venta.nombre}}</td>
+                        <td>{{venta.apellido}}</td>
+                        <td>{{venta.email}}</td>
                         <td>
                         
 
@@ -36,7 +36,7 @@
 
 
 {% else %}
-    <p> no se encuentra clientes con esas caracteristicas </p>
+    <p> no se encuentra ventas con esas caracteristicas </p>
 
 {% endif %}
 

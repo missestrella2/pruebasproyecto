@@ -2,17 +2,17 @@
 
 {% block content %}
 
-<h1 class="mt-4">Clientes</h1>
+<h1 class="mt-4">Ventas</h1>
 <ol class="breadcrumb mb-4">
- <li class="breadcrumb-item active">Alta Cliente</li>
+ <li class="breadcrumb-item active">Alta Venta</li>
 </ol>
 
 <div class="card col-3">
-    <div class="card-header">Alta de Cliente</div>
+    <div class="card-header">Alta de Venta</div>
     <div class="card-body">
-        <form action="{% url 'altaclienteform' %}" method="post" enctype="multipart/form-data">
+        <form action="{% url 'altaventaform' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {% include 'clientes/form_campos.html' %}
+            {% include 'prueba_ventas/form_campos.html' %}
             <div class="row mt-3">
     <div class="col-12">
         <input type="submit" value="Guardar" class="btn btn-success">

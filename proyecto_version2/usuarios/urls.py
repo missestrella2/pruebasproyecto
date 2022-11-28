@@ -9,5 +9,7 @@ urlpatterns=[
     path('usuarios/usuarioeditar/<int:id_usuario>',views.usuarioeditar,name='usuarioeditar'),
     path('usuarios/usuarioeliminar/<int:id_usuario>',views.usuarioeliminar,name='usuarioeliminar'),
     path('usuarios/paginaenblanco/',views.paginaenblanco,name='paginaenblanco'),
+
+    path('usuarios/buscarusuario/',views.buscarusuario,name='buscarusuario'),
 ]
 

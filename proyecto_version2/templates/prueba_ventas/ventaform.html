@@ -1,17 +1,17 @@
 {% extends "plantillabase2.html" %}
 
 {% block titulo %}
-clientes form
+ventas form
 {% endblock %}
 
 
 {% block content %}
 
-<h3>Filtrar clientes por:</h3>
+<h3>Filtrar ventas por:</h3>
 <form action="{% url 'resultadofiltro' %}" method="POST">
   {% csrf_token %}
   <table>
-    {{ clientesform.as_table }}
+    {{ ventasform.as_table }}
   </table>
   <input type="submit" value="Filtrar">
 </form>

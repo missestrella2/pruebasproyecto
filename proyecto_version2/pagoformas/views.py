@@ -92,4 +92,3 @@ class bajapagoformaform(View): #FORMULARIO DE BAJA
             return redirect('listadepagoformas')
 
         return render(request, self.template_name, {'formulario': form})
-

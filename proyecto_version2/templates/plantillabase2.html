@@ -71,6 +71,24 @@
                             <li><a class="dropdown-item" href={% url 'listadepagoformas' %}>Listado</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Historial de Ventas
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href={% url 'altaventaform' %}>Alta</a></li>
+<li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href={% url 'listadeventas' %}>Listado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'buscarventas' %}" role="button">
+                            Estadisticas
+                        </a>
+                    </li>
                 </ul>
                 <a type="button" href="{% url "logout" %}" class="btn btn-dark me-2">Cerrar Sesión</a>
             </div>
