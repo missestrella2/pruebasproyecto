@@ -2,15 +2,15 @@
 
 {% block content %}
 
-<h1 class="mt-4">Clientes</h1>
+<h1 class="mt-4">Forma de Pagos</h1>
 <ol class="breadcrumb mb-4">
- <li class="breadcrumb-item active">Editar Cliente</li>
+ <li class="breadcrumb-item active">Editar Forma de Pago</li>
 </ol>
 
 <div class="card col-3">
-    <div class="card-header">Edicion de cliente</div>
+    <div class="card-header">Edicion de Forma De Pago</div>
     <div class="card-body">
-        <form action="{% url 'clienteeditar' id_cliente %}" method="post" enctype="multipart/form-data">
+        <form action="{% url 'pagoformaeditar' id_pagoforma %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
 
 

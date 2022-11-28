@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'prueba_clientes',
     'prueba_ventas',
     'prueba_estadisticas', 
-    'prueba_pagos',
+    'pagoformas',
+
     'django_extensions'
 ]
 

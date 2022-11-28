@@ -63,12 +63,12 @@
                             Formas de Pago
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="">Alta</a></li>
-                            <li><a class="dropdown-item" href="">Baja</a></li>
+                            <li><a class="dropdown-item" href={% url 'altapagoformaform' %}>Alta</a></li>
+                            <li><a class="dropdown-item" href={% url 'bajapagoformaform' %}>Baja</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="">Listado</a></li>
+                            <li><a class="dropdown-item" href={% url 'listadepagoformas' %}>Listado</a></li>
                         </ul>
                     </li>
                 </ul>

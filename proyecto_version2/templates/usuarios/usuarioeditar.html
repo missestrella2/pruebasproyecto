@@ -8,9 +8,9 @@
 </ol>
 
 <div class="card col-3">
-    <div class="card-header">Edicion de cliente</div>
+    <div class="card-header">Edicion de usuario</div>
     <div class="card-body">
-        <form action="{% url 'clienteeditar' id_cliente %}" method="post" enctype="multipart/form-data">
+        <form action="{% url 'usuarioeditar' id_usuario %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
 
 

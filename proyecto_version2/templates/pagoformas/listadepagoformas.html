@@ -1,0 +1,29 @@
+{% extends "plantillabase2.html" %} 
+
+{% block content %}
+
+    <p>Formas de pago encontradas: {{pagoformas|length}}</p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                {% for pagoforma in object_list %}
+                    <tr>
+                        <td>{{pagoforma.id}}</td>
+                        <td>{{pagoforma.nombre}}</td>
+                        <td>
+                            <a class="btn btn-primary" href="{% url 'pagoformaeditar' pagoforma.id %}">Editar</a>
+                            <a class="btn btn-danger" href="{% url 'pagoformaeliminar' pagoforma.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+               
+            </tbody>
+        </table>
+{% endblock %}

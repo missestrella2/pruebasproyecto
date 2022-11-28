@@ -35,7 +35,7 @@ def clienteeditar(request, id_cliente): #BOTON EDITAR EN LISTADO
     else:
         formulario = ClientesForm(instance=cliente)
 
-    return render(request, 'prueba_clientes/clienteeditar.html', {'formulario': formulario, 'id_cliente': id_cliente})
+    return render(request, 'prueba_clientes/clienteseditar.html', {'formulario': formulario, 'id_cliente': id_cliente})
 
 
 def clienteeliminar(request, id_cliente): #BOTON ELIMINAR EN LISTADO 

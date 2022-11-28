@@ -32,7 +32,8 @@ urlpatterns = [
     path('', include('prueba_ventas.urls')),
     path('', include('login.urls')),
     path('', include('prueba_estadisticas.urls')),
-    path('', include('prueba_pagos.urls')),
+    #path('', include('prueba_pagos.urls')),
+    path('', include('pagoformas.urls')),
     path('', include('prueba_clientes.urls')),
     path('', include('usuarios.urls')),
 

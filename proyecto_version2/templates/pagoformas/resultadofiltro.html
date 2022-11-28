@@ -3,25 +3,21 @@
 {% block content %}
 
 
-{% if clientes %}
-    <p>Clientes encontrados: {{clientes|length}}</p>
+{% if pagoformas %}
+    <p>Formas de Pago encontrados: {{pagoformas|length}}</p>
 
         <table class="table">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Email</th>
                 </tr>
             </thead>
             <tbody>
-                {% for cliente in clientes %}
+                {% for pagoforma in pagoformas %}
                     <tr>
-                        <td>{{cliente.id}}</td>
-                        <td>{{cliente.nombre}}</td>
-                        <td>{{cliente.apellido}}</td>
-                        <td>{{cliente.email}}</td>
+                        <td>{{pagoforma.id}}</td>
+                        <td>{{pagoforma.nombre}}</td>
                         <td>
                         
 
