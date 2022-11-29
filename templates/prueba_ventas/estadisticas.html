@@ -1,0 +1,43 @@
+{% extends "plantillabase2.html" %} 
+
+{% block content %}
+
+
+{% if ventas %}
+    <p>Clientes que no compran hace mas de 3 meses: {{ventas|length}}</p>
+    <p>Enviar promocion por mail a los siguientes clientes:</p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Fecha de Ultima Compra</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for venta in ventas %}
+                    <tr>
+                        <td>{{venta.id}}</td>
+                        <td>{{venta.fecha_de_compra}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+
+
+
+{% else %}
+    <p> no se encuentra clientes con esas caracteristicas </p>
+
+{% endif %}
+
+{% endblock %}

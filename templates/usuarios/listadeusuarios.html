@@ -1,0 +1,33 @@
+{% extends "plantillabase2.html" %} 
+
+{% block content %}
+
+    <p>Clientes encontrados: {{usuarios|length}}</p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                {% for usuario in object_list %}
+                    <tr>
+                        <td>{{usuario.id}}</td>
+                        <td>{{usuario.nombre}}</td>
+                        <td>{{usuario.apellido}}</td>
+                        <td>{{usuario.email}}</td>
+                        <td>
+                            <a class="btn btn-primary" href="{% url 'usuarioeditar' usuario.id %}">Editar</a>
+                            <a class="btn btn-danger" href="{% url 'usuarioeliminar' usuario.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+               
+            </tbody>
+        </table>
+{% endblock %}

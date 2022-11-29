@@ -1,0 +1,43 @@
+{% extends "plantillabase2.html" %} 
+
+{% block content %}
+
+
+{% if ventas %}
+    <p>Ventas encontrados: {{ventas|length}}</p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for venta in ventas %}
+                    <tr>
+                        <td>{{venta.id}}</td>
+                        <td>{{venta.nombre}}</td>
+                        <td>{{venta.apellido}}</td>
+                        <td>{{venta.email}}</td>
+                        <td>
+                        
+
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+
+
+
+{% else %}
+    <p> no se encuentra ventas con esas caracteristicas </p>
+
+{% endif %}
+
+{% endblock %}

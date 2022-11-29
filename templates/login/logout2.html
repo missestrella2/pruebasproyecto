@@ -1,0 +1,15 @@
+{% extends "plantillabase2.html" %}
+
+{% block titulo %}
+Logout
+{% endblock %}
+
+
+
+{% block content %}
+
+<h1>Te deslogueaste con exito</h1>
+
+<a class="btn btn-primary" href="{% url 'login' %}" role="button">Volver</a>
+
+{% endblock %}

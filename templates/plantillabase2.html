@@ -1,0 +1,116 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <title> {% block titulo %} {% endblock %} </title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- codigo para que el footer quede pegado abajo-->
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+    </style>
+    <!-- fin del codigo para que el footer quede pegado abajo-->
+</head>
+
+<body>
+
+    {% if user.is_authenticated %}
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="{% static 'logo.jpg' %}" width="40" height="40" class="ms-5">
+                {{marca|upper}} </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item text-white mt-2">
+                        <p class="me-5">Bienvenido\a, {{ user.username }}.</p>
+                    </li>
+                    {% comment %} <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{% url 'listadeclientes' %}" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Clientes
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'altaclienteform' %}">Altas</a></li>
+                            <li><a class="dropdown-item" href="{% url 'bajaclienteform' %}">Bajas</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'listadeclientes' %}">Listado</a></li>
+                        </ul>
+                    </li>{% endcomment %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Formas de Pago
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href={% url 'altapagoformaform' %}>Alta</a></li>
+                            <li><a class="dropdown-item" href={% url 'bajapagoformaform' %}>Baja</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href={% url 'listadepagoformas' %}>Listado</a></li>
+                        </ul>
+                    </li> 
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Historial de Ventas
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href={% url 'altaventaform' %}>Alta</a></li>
+<li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href={% url 'listadeventas' %}>Listado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'buscarventas' %}" role="button">
+                            Estadisticas
+                        </a>
+                    </li>
+                </ul>
+                <a type="button" href="{% url "logout" %}" class="btn btn-dark me-2">Cerrar Sesión</a>
+            </div>
+        </div>
+    </nav>
+    {% else %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- <a type="button" href="{% url 'index' %}" class="btn btn-outline-primary me-2">Iniciar Sesión</a>
+                    <a type="button" href="" class="btn btn-dark">Registrarse</a> -->
+    </div>
+    {% endif %}
+
+
+
+
+    <div class="container-xxl mx-5 my-5">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

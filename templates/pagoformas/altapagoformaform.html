@@ -1,0 +1,28 @@
+{% extends "plantillabase2.html" %} 
+
+{% block content %}
+
+<h1 class="mt-4">Formas de Pago</h1>
+<ol class="breadcrumb mb-4">
+ <li class="breadcrumb-item active">Alta Forma de Pago</li>
+</ol>
+
+<div class="card col-3">
+    <div class="card-header">Alta de Forma de Pago</div>
+    <div class="card-body">
+        <form action="{% url 'altapagoformaform' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include 'pagoformas/form_campos.html' %}
+            <div class="row mt-3">
+    <div class="col-12">
+        <input type="submit" value="Guardar" class="btn btn-success">
+        <a href="javascript:history.back();" class="btn btn-secondary">Cancelar</a>        
+    </div>
+</div>
+        </form>
+
+</div></div></div>
+
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "plantillabase2.html" %} 
+
+{% block content %}
+
+<h1 class="mt-4">Forma de Pagos</h1>
+<ol class="breadcrumb mb-4">
+ <li class="breadcrumb-item active">Editar Forma de Pago</li>
+</ol>
+
+<div class="card col-3">
+    <div class="card-header">Edicion de Forma De Pago</div>
+    <div class="card-body">
+        <form action="{% url 'pagoformaeditar' id_pagoforma %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+
+            {% for campo in formulario %}
+            <div class="form-group">
+             <label for="">{{campo.label}}</label>
+        
+             <input 
+            type="{{campo.field.widget.input_type}}" 
+            name="{{campo.name}}" 
+            id="{{campo.name}}"
+            class="form-control"
+            placeholder="Ingrese {{campo.name}}"
+            value="{{ campo.value | default:'' }}"
+            > 
+            </div>
+            <div>{{campo.errors}}</div>
+{% endfor %}
+<div class="row mt-3">
+    <div class="col-12">
+        <input type="submit" value="Guardar" class="btn btn-success">
+        <a href="javascript:history.back();" class="btn btn-secondary">Cancelar</a>        
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</form>
+
+{% endblock %}
