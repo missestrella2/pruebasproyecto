@@ -7,6 +7,8 @@ from django.template import loader
 from prueba_ventas.forms import VentasForm, AltaVentaForm,BuscarVentaForm
 from django.contrib import messages
 from prueba_ventas.models import Venta
+from prueba_clientes.models import Cliente
+from pagoformas.models import PagoForma
 from django.views import View
 from django.views.generic import ListView
 
@@ -24,7 +26,7 @@ def buscarventas(request): #filtro por nombre
     ventas=ventas.filter(fecha_de_venta__range=["1900-09-01", "2022-10-31"])
     context={
      'form': BuscarVentaForm(),
-     'ventas':ventas
+     'ventas':ventas,
     }
     return render(request,'prueba_ventas/buscarventas.html',context)
 

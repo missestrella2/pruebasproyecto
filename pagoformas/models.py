@@ -20,3 +20,9 @@ class PagoForma(models.Model):
         if self.nombre.upper() == 'Efectivo':
             raise ValueError("No se puede eliminar")
         return super().delete(*args, **kwargs)
+
+    class Meta:
+        db_table = 'Formas de Pago'
+        managed = True
+        verbose_name = 'Forma de Pago'
+        verbose_name_plural = 'Formas de Pago'

@@ -10,7 +10,7 @@
 <div class="card col-3">
     <div class="card-header">Alta de Cliente</div>
     <div class="card-body">
-        <form action="{% url 'altaclienteform' %}" method="post" enctype="multipart/form-data">
+        <form action="{% url 'AltaClienteForm' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% include 'prueba_clientes/form_campos.html' %}
             <div class="row mt-3">

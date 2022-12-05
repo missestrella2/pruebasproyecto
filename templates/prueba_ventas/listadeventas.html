@@ -2,32 +2,44 @@
 
 {% block content %}
 
-    <p>Ventas encontrados: {{ventas|length}}</p>
+    <p>Ventas encontrados: {{object_list|length}}</p>
 
         <table class="table">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Fecha de Venta</th>
-                    <th>Nombre del Cliente</th>
-                    <th>Apellido del Cliente</th>
-                    <th>Forma de Pago</th>
                     <th>Monto</th>
-                    <th></th>
+                    <th>Nombre</th> 
+                    <th>Forma de Pago</th> 
                 </tr>
             </thead>
             <tbody>
-               
-                {% for venta in object_list %}
+            
+            {% for venta in ventas %} 
                     <tr>
+            
                         <td>{{venta.id}}</td>
                         <td>{{venta.fecha_de_venta}}</td>
+                        <td>{{venta.monto}}</td> 
+                        <td>{{venta.clientes_id}}</td>          
                         <td></td>
-                        <td></td>
-                        <td>{{venta_pagoformas.pagoforma_id}}</td>
-                        <td>{{venta.monto}}</td>
+                              
+            {% endfor %}             
+
+            {% comment %} {% for venta in listadeventas %} 
+                    <tr>
+            
+                        <td>{{venta.id}}</td>
+                        <td>{{venta.fecha_de_venta}}</td>
+                        <td>{{venta.monto}}</td> 
+                        <td>{{venta.clientes_id}}</td>
+                        <td>{{}}</td>
+                              
+            {% endfor %}              {% endcomment %}
+                
                     </tr>
-                {% endfor %}
+             
                
             </tbody>
         </table>

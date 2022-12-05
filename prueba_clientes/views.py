@@ -43,14 +43,16 @@ def clienteeliminar(request, id_cliente): #BOTON ELIMINAR EN LISTADO
         cliente = Cliente.objects.get(id=id_cliente)
     except Cliente.DoesNotExist:
         return render(request, 'prueba_clientes/404.html')
-    
-    try:
-        cliente.delete()
-    except ValueError as ve:
-        messages.error(request=request, message="no se puede borrar")
+    # try:
+    #     cliente.delete()
+    # except ValueError as ve:
+    #     messages.error(request=request, message="no se puede borrar")
+    # return redirect('listadeclientes')
+    cliente.delete()
     return redirect('listadeclientes')
 
-class altaclienteform(View): #FORMULARIO DE ALTA
+
+class AltaClienteForm(View): #FORMULARIO DE ALTA
     form_class = AltaClienteForm
     template_name = 'prueba_clientes/altaclienteform.html'
 
@@ -66,7 +68,7 @@ class altaclienteform(View): #FORMULARIO DE ALTA
 
         return render(request, self.template_name, {'formulario': form})
 
-class bajaclienteform(View): #FORMULARIO DE BAJA
+class BajaClienteForm(View): #FORMULARIO DE BAJA
     form_class = BajaClienteForm
     template_name = 'prueba_clientes/bajaclienteform.html'
 
@@ -80,7 +82,7 @@ class bajaclienteform(View): #FORMULARIO DE BAJA
             nombre = form.cleaned_data['nombre']
             apellido = form.cleaned_data['apellido']
             email = form.cleaned_data['email']
-            
+      
         try:
             cliente_a_borrar= Cliente.objects.get(nombre=nombre,apellido=apellido,email=email)
         except Cliente.DoesNotExist:
@@ -88,8 +90,18 @@ class bajaclienteform(View): #FORMULARIO DE BAJA
         try:    
             cliente_a_borrar.delete()
         except ValueError as ve:
-            bajaclienteform.add_error('email', str(ve))
+            BajaClienteForm.add_error('email', str(ve))
         else:
             return redirect('listadeclientes')
 
         return render(request, self.template_name, {'formulario': form})
+        # #     try:
+        # #         cliente_a_borrar= Cliente.objects.get(nombre=nombre,apellido=apellido,email=email)
+        # #     except Cliente.DoesNotExist:
+        # #         return render(request, "prueba_clientes/404.html")    
+          
+        # #     cliente_a_borrar.delete()
+        # # else:
+        # #     return redirect('listadeclientes')
+
+        # # return render(request, self.template_name, {'formulario': form})

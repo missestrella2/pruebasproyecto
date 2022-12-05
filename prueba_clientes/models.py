@@ -3,14 +3,13 @@ from django.db import models
 #from email.policy import default
 #from tabnanny import verbose
 from django.db import models
-from prueba_ventas.models import Venta
+
 
 
 class Cliente(models.Model):
-    nombre= models.CharField(max_length=100, default=" ", verbose_name='Nombre')
-    apellido= models.CharField(max_length=100, null=True, verbose_name='Apellido')
+    nombre= models.CharField(max_length=100, default=" ",verbose_name='Nombre')
+    apellido= models.CharField(max_length=100, default=" ", verbose_name='Apellido')
     email= models.EmailField(max_length=150, verbose_name='Email')
-    ventas = models.ForeignKey(Venta,default="",on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.id} - {self.apellido}, {self.nombre}"
@@ -25,3 +24,10 @@ class Cliente(models.Model):
         if self.email.upper() == 'almada@gmail.com':
             raise ValueError("No se puede eliminar a Almada")
         return super().delete(*args, **kwargs)
+    
+    class Meta:
+        db_table = 'Clientes'
+        managed = True
+        verbose_name = 'Cliente'
+        verbose_name_plural = 'Clientes'
+    

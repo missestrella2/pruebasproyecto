@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ValidationError
 from .models import Cliente
+
 #from .models import Cargo
 
 class ClientesForm(forms.ModelForm):
@@ -16,4 +17,4 @@ class AltaClienteForm(forms.ModelForm):
 class BajaClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
-        fields = ['id','nombre','apellido','email']
+        fields = '__all__'
